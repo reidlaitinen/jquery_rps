@@ -1,0 +1,67 @@
+
+
+#header-content {
+  height: 100px;
+  border-color: red;
+  background-color: gray;
+  border-style: 10px solid;
+  text-align: justify;
+  text-justify: kashida;
+}
+
+#footArea {
+  height: 200px;
+  border-color: red;
+  border-style: 1px solid;
+}
+
+.mainTitleText {
+  font-size: 75px;
+}
+
+.mainTitle {
+  text-align: center;
+  overflow-x: scroll;
+}
+
+
+#user-row {
+  height: 200px;
+}
+
+#computer-row {
+  height: 200px;
+}
+
+.gameIcon {
+  max-width: 189px;
+  max-height: 189px;
+}
+
+.displayOff {
+  display: none;
+}
+
+.winBorder {
+  border: 10px solid green;
+}
+
+.loseBorder {
+  border: 10px solid red;
+}
+
+.userChoice {
+  background-color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.color {
+  color: black;
+}

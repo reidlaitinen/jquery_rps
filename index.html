@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>RPS</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+  </head>
+
+  <body>
+    <div id="header-row" class="container-fluid">
+      <!--<div id="header-content" class="container-fluid">
+        <h1 id="mainTitleText">Rock Paper Scissors</h1>
+      </div>-->
+      <div id="header-content" class="row">
+          <div class="col-sm mainTitle center">
+            <h1 class="mainTitleText">Rock &nbsp; &nbsp; Paper &nbsp; &nbsp;  Scissors</h1>
+          </div>
+      </div>
+    </div>
+    
+
+    <div id="body-row" class="container-fluid">
+      <div id="body-container" class="container">
+        <div id="user-row" class="row">
+          <div class="col-sm">
+            <div id="user-rock-div">
+              <img id="rock" class="userOption gameIcon" src="./images/rock.png">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div id="user-paper-div">
+              <div>
+                <img id="paper" class="userOption gameIcon" src="./images/paper.png">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div id="user-scissors">
+              <div>
+                <img id="scissors" class="userOption gameIcon" src="./images/scissors.png">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="computer-row" class="row">
+            <div class="col-sm">
+              <div id="computer-rock">
+                <div id="user-rock-div">
+                  <img id="computer-rock-img" class="computerOption gameIcon displayOff" src="./images/rock.png">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div id="computer-paper">
+                <div>
+                  <img id="computer-paper-img" class="computerOption gameIcon displayOff" src="./images/paper.png">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div id="computer-scissors">
+                <div>
+                  <img id="computer-scissors-img" class="computerOption gameIcon displayOff" src="./images/scissors.png">
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id="footer-row" class="container-fluid">
+      <div id="footer-content" class="container-fluid">
+        <h2 id="userChoice"></h2>
+        <h2 id="computerChoice"></h2>
+        <h1 id ="result"></h1>
+      </div>
+    </div>
+
+    
+
+
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+  </body>
+</html>
