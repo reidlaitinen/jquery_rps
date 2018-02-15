@@ -38,10 +38,6 @@
   max-height: 189px;
 }
 
-.displayOff {
-  display: none;
-}
-
 .winBorder {
   border: 10px solid green;
 }
