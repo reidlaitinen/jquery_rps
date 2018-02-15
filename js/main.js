@@ -7,17 +7,13 @@ $(document).ready( function () {
   }
 
   function showComputerChoice(computerChoice) {
-    
     var choiceID = "#computer-" + computerChoice + "-img"
-    console.log("un-hiding #" + choiceID)
     $(choiceID).show()
-
   }
 
   function addFrames(winnerChoice, loserChoice, winner, loser) {
     $('#' + winner + "-" + winnerChoice + "-img").addClass('winBorder')
     $('#' + loser + "-" + loserChoice + "-img").addClass('loseBorder')
-
   }
 
 
@@ -27,7 +23,6 @@ $(document).ready( function () {
   }
 
   function getResult(userChoice, computerChoice) {
-    console.log("evaluating " + userChoice + " vs " + computerChoice)
     
     if ((userChoice == 'rock' && computerChoice == 'scissors') ||
        (userChoice == 'paper' && computerChoice == 'rock') ||
@@ -38,7 +33,6 @@ $(document).ready( function () {
       } else {
         return 'computer'
       }
-
   }
 
   function startGame(userChoice, computerChoice) {
@@ -46,9 +40,6 @@ $(document).ready( function () {
     clearFrames()
     userChoice = userChoice.replace('user-', '')
     userChoice = userChoice.replace('-img', '')
-    console.log("starting game")
-    console.log("userChoice = " + userChoice)
-    console.log("computerChoice = " + computerChoice)
 
     showComputerChoice(computerChoice)
 
@@ -68,14 +59,11 @@ $(document).ready( function () {
   // listen for click on any element with userOption class
   $('.userOption').on('click', function() {
 
-    console.log("clicked element: #" + this.id)
     startGame(
       this.id,
       ['rock','paper','scissors'][Math.floor(Math.random() * 3)]
     )
-
   })
-
 
 // end document.ready block
 })
