@@ -6,7 +6,8 @@ $(document).ready( function () {
 
   var wins = {
     user: 0,
-    computer: 0
+    computer: 0,
+    neither: 0
   }
 
   var rockWins = {
@@ -40,6 +41,16 @@ $(document).ready( function () {
   function addFrames(winnerChoice, loserChoice, winner, loser) {
     $('#' + winner + "-" + winnerChoice + "-img").addClass('winBorder')
     $('#' + loser + "-" + loserChoice + "-img").addClass('loseBorder')
+  }
+
+  function updateScore() {
+    var userPercent = ((wins.user / totalGames) * 100).toFixed(2)
+    var computerPercent = ((wins.computer / totalGames) * 100).toFixed(2)
+    var tiePercent = ((wins.neither / totalGames) * 100).toFixed(2)
+    $('#userScore').html('User score: ' + wins.user + " (" + userPercent + "%)")
+    $('#computerScore').html('Computer score: ' + wins.computer + " (" + computerPercent + "%)")
+    $('#ties').html('Ties: ' + wins.neither + " (" + tiePercent + "%)")
+
   }
 
 
@@ -109,7 +120,6 @@ $(document).ready( function () {
 
   function startGame(userChoice, computerChoice) {
     totalGames++
-    console.log(totalGames)
     $('.computerOption').hide()
     $('.computerBadge').hide()
     clearFrames()
@@ -120,17 +130,23 @@ $(document).ready( function () {
 
     var winner = getResult(userChoice, computerChoice)
     if (winner == 'user') {
+      wins.user++
       addFrames(userChoice, computerChoice, 'user', 'computer')
       resultStuff(userChoice, 'user')
       badgeStuff(userChoice, computerChoice, 'user', 'computer')
+      
     } else if (winner == 'computer') {
+      wins.computer++
       addFrames(computerChoice, userChoice, 'computer', 'user')
       resultStuff(computerChoice, 'computer')
       badgeStuff(computerChoice, userChoice, 'computer','user')
+      
     } else {
+      wins.neither++
       clearFrames()
       $('.notify-badge').hide()
     }
+    updateScore()
   }
 
   // listen for click on any element with userOption class

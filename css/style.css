@@ -24,6 +24,12 @@
   overflow-x: scroll;
 }
 
+#body-container {
+  max-width: 720px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 
 #user-row {
   height: 200px;
@@ -60,6 +66,10 @@
 
 .color {
   color: black;
+}
+
+#userScore #computerScore #ties {
+  display: inline;
 }
 
 /* stack overflow copypasta, for badges */
