@@ -1,5 +1,31 @@
 $(document).ready( function () {
   $('.computerOption').hide()
+  $('.notify-badge').hide()
+
+  var totalGames = 0
+
+  var wins = {
+    user: 0,
+    computer: 0
+  }
+
+  var rockWins = {
+    user: 0,
+    computer: 0,
+    percentage: 0.00
+  }
+
+  var paperWins = {
+    user: 0,
+    computer: 0,
+    percentage: 0.00
+  }
+
+  var scissorsWins = {
+    user: 0,
+    computer: 0,
+    percentage: 0.00
+  }
 
   function clearFrames() {
     $('.winBorder').removeClass('winBorder')
@@ -17,8 +43,54 @@ $(document).ready( function () {
   }
 
 
-  function displayResult(winner) {
-  
+  function badgeStuff(winnerChoice, loserChoice, winner, loser) {
+
+    // hide all badges
+    $('.notify-badge').hide()
+
+    // build the string to find the winning badge based on class list
+    var winnerBadgeClasses = '.notify-badge.' + winner + "." + winnerChoice
+
+    // update text on badge-to-show, with info from object, then show the badge
+    switch(winnerChoice) {
+      case 'rock':
+        $(winnerBadgeClasses)
+          .html("Wins: " + rockWins[winner] + "<br>" + rockWins.percentage + "%")
+          $(winnerBadgeClasses).show()
+        break
+      case 'paper':
+        $(winnerBadgeClasses)
+          .html("Wins: " + paperWins[winner] + "<br>" + paperWins.percentage + "%")
+          $(winnerBadgeClasses).show()
+        break
+      case 'scissors':
+        $(winnerBadgeClasses)
+          .html("Wins: " + scissorsWins[winner] + "<br>" + scissorsWins.percentage + "%")
+          $(winnerBadgeClasses).show()
+        break
+    }
+
+  }
+
+
+  function resultStuff(winnerChoice, winner) {
+    switch (winnerChoice) {
+      case 'rock':
+        rockWins[winner] += 1
+        rockWins.percentage = (((rockWins.user + rockWins.computer) / totalGames) * 100).toFixed(2)
+        break
+      case 'paper':
+        paperWins[winner] += 1
+        paperWins.percentage = (((paperWins.user + paperWins.computer) / totalGames) * 100).toFixed(2)
+        break
+      case 'scissors':
+        scissorsWins[winner] += 1
+        scissorsWins.percentage = (((scissorsWins.user + scissorsWins.computer) / totalGames) * 100).toFixed(2)
+        break
+    }
+    console.log(paperWins.user)
+    console.log(paperWins.computer)
+    console.log(paperWins.percentage)
 
   }
 
@@ -36,7 +108,10 @@ $(document).ready( function () {
   }
 
   function startGame(userChoice, computerChoice) {
+    totalGames++
+    console.log(totalGames)
     $('.computerOption').hide()
+    $('.computerBadge').hide()
     clearFrames()
     userChoice = userChoice.replace('user-', '')
     userChoice = userChoice.replace('-img', '')
@@ -46,13 +121,15 @@ $(document).ready( function () {
     var winner = getResult(userChoice, computerChoice)
     if (winner == 'user') {
       addFrames(userChoice, computerChoice, 'user', 'computer')
-      displayResult('user')
+      resultStuff(userChoice, 'user')
+      badgeStuff(userChoice, computerChoice, 'user', 'computer')
     } else if (winner == 'computer') {
       addFrames(computerChoice, userChoice, 'computer', 'user')
-      displayResult('computer')
+      resultStuff(computerChoice, 'computer')
+      badgeStuff(computerChoice, userChoice, 'computer','user')
     } else {
       clearFrames()
-      displayResult('tie')
+      $('.notify-badge').hide()
     }
   }
 
