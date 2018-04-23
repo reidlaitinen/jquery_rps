@@ -52,12 +52,20 @@
   border: 10px solid red;
 }
 
+.tieBorder {
+  border: 10px solid yellow;
+}
+
 .userChoice {
   background-color: yellow;
 }
 
 .green {
   color: green;
+}
+
+.yellow {
+  color: yellow;
 }
 
 .red {

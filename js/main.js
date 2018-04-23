@@ -31,6 +31,7 @@ $(document).ready( function () {
   function clearFrames() {
     $('.winBorder').removeClass('winBorder')
     $('.loseBorder').removeClass('loseBorder')
+    $('.tieBorder').removeClass('tieBorder')
   }
 
   function showComputerChoice(computerChoice) {
@@ -39,8 +40,15 @@ $(document).ready( function () {
   }
 
   function addFrames(winnerChoice, loserChoice, winner, loser) {
-    $('#' + winner + "-" + winnerChoice + "-img").addClass('winBorder')
-    $('#' + loser + "-" + loserChoice + "-img").addClass('loseBorder')
+    if ( winnerChoice === loserChoice ) {
+      console.log("winnerChoice" + winnerChoice)
+      console.log("loserChoice" + loserChoice)
+      $('#' + winner + "-" + winnerChoice + "-img").addClass('tieBorder')
+      $('#' + loser + "-" + loserChoice + "-img").addClass('tieBorder')
+    } else {
+      $('#' + winner + "-" + winnerChoice + "-img").addClass('winBorder')
+      $('#' + loser + "-" + loserChoice + "-img").addClass('loseBorder')
+    }
   }
 
   function updateScore() {
@@ -99,9 +107,6 @@ $(document).ready( function () {
         scissorsWins.percentage = (((scissorsWins.user + scissorsWins.computer) / totalGames) * 100).toFixed(2)
         break
     }
-    console.log(paperWins.user)
-    console.log(paperWins.computer)
-    console.log(paperWins.percentage)
 
   }
 
@@ -143,7 +148,7 @@ $(document).ready( function () {
       
     } else {
       wins.neither++
-      clearFrames()
+      addFrames(computerChoice, userChoice, 'computer', 'user')
       $('.notify-badge').hide()
     }
     updateScore()
