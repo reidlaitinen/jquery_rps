@@ -41,8 +41,6 @@ $(document).ready( function () {
 
   function addFrames(winnerChoice, loserChoice, winner, loser) {
     if ( winnerChoice === loserChoice ) {
-      console.log("winnerChoice" + winnerChoice)
-      console.log("loserChoice" + loserChoice)
       $('#' + winner + "-" + winnerChoice + "-img").addClass('tieBorder')
       $('#' + loser + "-" + loserChoice + "-img").addClass('tieBorder')
     } else {
